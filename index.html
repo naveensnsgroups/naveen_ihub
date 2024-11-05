@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login to Meeting</title>
+    <style>
+        #root {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #loginForm {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div id="loginForm">
+            <h2>Login to Meeting</h2>
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="password" id="meetingCode" placeholder="Meeting Code">
+            </div>
+            <button id="createMeetingBtn">Create Meeting</button>
+            <button id="joinMeetingBtn">Join Meeting</button>
+            <p id="error" style="color: red; display: none;">Invalid username or meeting code.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("createMeetingBtn").onclick = function() {
+            // Redirect to WEB_UIKITS.html for Create Meeting
+            window.location.href = "WEB_UIKITS.html";
+        };
+
+        document.getElementById("joinMeetingBtn").onclick = function() {
+            // Get username and meeting code values
+            const username = document.getElementById("username").value;
+            const meetingCode = document.getElementById("meetingCode").value;
+
+            // Validate username and meeting code
+            if (username === "ihub" && meetingCode === "123") {
+                // Redirect to WEB_UIKITS.html for Join Meeting if validation is successful
+                window.location.href = "WEB_UIKITS.html";
+            } else {
+                // Show error message if validation fails
+                document.getElementById("error").style.display = "block";
+            }
+        };
+    </script>
+</body>
+</html>
